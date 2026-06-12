@@ -27,6 +27,8 @@ export function Navigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
         className="glass-panel flex items-center px-4 py-3 rounded-[2rem] gap-2 shadow-2xl"
+        aria-label="Main"
+        role="navigation"
       >
         {links.map((link) => {
           const isActive = pathname === link.href;

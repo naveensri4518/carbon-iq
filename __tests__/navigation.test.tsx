@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Navigation from '@/components/Navigation'
+import { Navigation } from '@/components/Navigation'
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({

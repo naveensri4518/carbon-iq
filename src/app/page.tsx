@@ -6,16 +6,16 @@ import { ArrowRight, Globe, Zap, Leaf } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-text selection:bg-accent/30 overflow-hidden font-sans">
+    <main className="min-h-screen bg-background text-text selection:bg-accent/30 overflow-hidden font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6">
+      <section aria-labelledby="hero-heading" className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-center z-10 max-w-4xl"
         >
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 sf-pro-display">
+          <h1 id="hero-heading" className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 sf-pro-display">
             Predict Your <br />
             <span className="text-gradient">Climate Future.</span>
           </h1>
@@ -98,6 +98,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-    </div>
+    </main>
   );
 }

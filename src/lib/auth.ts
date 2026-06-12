@@ -35,11 +35,15 @@ export async function updateSession(request: NextRequest) {
   if (!session) return;
 
   const parsed = await decrypt(session);
-  parsed.expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  if (!parsed) return;
+
+  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  parsed.expires = expires.toISOString();
+  
   const res = new Response();
   res.headers.set(
     "Set-Cookie",
-    `session=${await encrypt(parsed)}; Path=/; HttpOnly; SameSite=Lax; Expires=${parsed.expires.toUTCString()}`
+    `session=${await encrypt(parsed)}; Path=/; HttpOnly; SameSite=Lax; Expires=${expires.toUTCString()}`
   );
   return res;
 }

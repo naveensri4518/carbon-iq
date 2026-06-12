@@ -44,7 +44,7 @@ export default async function DashboardPage() {
       <main className="max-w-7xl mx-auto px-6 mt-8">
         <div className="mb-12">
           <h2 className="text-5xl md:text-6xl font-bold tracking-tighter mb-4 text-text">Hello, {user?.name?.split(" ")[0]}.</h2>
-          <p className="text-xl text-muted tracking-tight">Here's your environmental impact summary.</p>
+          <p className="text-xl text-muted tracking-tight">Here&apos;s your environmental impact summary.</p>
         </div>
 
         {/* Bento Grid */}
