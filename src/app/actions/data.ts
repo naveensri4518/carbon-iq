@@ -91,6 +91,6 @@ export async function getChatHistory() {
   const session = await getSession();
   if (!session?.userId) throw new Error("Unauthorized");
 
-  const chat = await AIChat.findOne({ userId: session.userId }).lean();
+  const chat = await AIChat.findOne({ userId: session.userId }).lean() as any;
   return { messages: chat?.messages || [] };
 }
