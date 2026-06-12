@@ -65,7 +65,7 @@ export default function AdvisorPage({ initialMessages = [] }: { initialMessages?
   };
 
   return (
-    <div className="min-h-[90vh] bg-background text-text sf-pro-display selection:bg-accent/30 font-sans pb-32 pt-12 px-6 flex flex-col items-center">
+    <main className="min-h-[90vh] bg-background text-text sf-pro-display selection:bg-accent/30 font-sans pb-32 pt-12 px-6 flex flex-col items-center">
       <header className="w-full max-w-5xl mb-8 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">Intelligence</h1>
         <p className="text-muted text-lg">Your personal, data-driven climate intelligence copilot.</p>
@@ -148,6 +148,6 @@ export default function AdvisorPage({ initialMessages = [] }: { initialMessages?
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

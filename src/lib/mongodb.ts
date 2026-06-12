@@ -6,10 +6,10 @@ if (!MONGODB_URI) {
   throw new Error("Please define MONGODB_URI");
 }
 
-let cached = (global as any).mongoose;
+let cached = (global as unknown as { mongoose: any }).mongoose;
 
 if (!cached) {
-  cached = (global as any).mongoose = {
+  cached = (global as unknown as { mongoose: any }).mongoose = {
     conn: null,
     promise: null,
   };

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -49,7 +51,7 @@ export default function PassportPage() {
   }
 
   return (
-    <div className="min-h-screen pt-12 px-6 flex flex-col items-center max-w-7xl mx-auto pb-24 sf-pro-display selection:bg-accent/30 text-text">
+    <main className="min-h-screen pt-12 px-6 flex flex-col items-center max-w-7xl mx-auto pb-24 sf-pro-display selection:bg-accent/30 text-text">
       
       {/* Header with Sign Out */}
       <header className="w-full mb-16 flex justify-between items-start max-w-3xl mx-auto">
@@ -91,9 +93,11 @@ export default function PassportPage() {
               <h2 className="text-2xl font-semibold text-[#F5F5F7] tracking-tight">{data.user.name}</h2>
             </div>
             <div className="w-14 h-14 rounded-full border-[2px] border-white/20 overflow-hidden shadow-inner bg-[#111111]">
-              <img 
+              <Image 
                 src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${data.user.name}&backgroundColor=transparent`} 
                 alt="Profile" 
+                width={56}
+                height={56}
                 className="w-full h-full object-cover scale-110"
               />
             </div>
@@ -147,6 +151,6 @@ export default function PassportPage() {
           <Share size={18} /> Share Identity
         </button>
       </div>
-    </div>
+    </main>
   );
 }

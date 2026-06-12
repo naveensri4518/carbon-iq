@@ -36,7 +36,8 @@ export async function POST(req: Request) {
         climateScore: user.climateScore,
       },
     });
-  } catch (error: any) {
-    return Response.json({ success: false, error: error.message || "Internal server error" }, { status: 500 });
+  } catch (error: unknown) {
+    const err = error as Error;
+    return Response.json({ success: false, error: err.message || "Internal server error" }, { status: 500 });
   }
 }

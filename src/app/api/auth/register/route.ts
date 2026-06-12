@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 export async function POST(req: Request) {
   try {
     await connectDB();
-    console.log("MongoDB connected in register route");
+    await connectDB();
 
     const body = await req.json();
     const { name, email, password } = body;
@@ -21,14 +21,14 @@ export async function POST(req: Request) {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      console.log("Registration failed: Email already exists");
+
       return Response.json(
         { success: false, error: "User already exists with this email" },
         { status: 400 }
       );
     }
 
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const user = await User.create({
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
       climateScore: 75,
     });
 
-    console.log("User created:", user._id);
+
 
     // Generate AI Insight
     let aiInsight = "Your data suggests switching to renewable grid energy will reduce your footprint by 2.1 tons instantly.";
@@ -57,14 +57,14 @@ export async function POST(req: Request) {
       },
       aiInsight,
     });
-    console.log("ClimateData seeded for user:", user._id);
+
 
     const { encrypt } = await import("@/lib/auth");
     const { cookies } = await import("next/headers");
     const sessionToken = await encrypt({ userId: user._id.toString(), email: user.email });
     (await cookies()).set("session", sessionToken, { httpOnly: true, secure: true, path: "/" });
 
-    console.log("API response: success");
+
     return Response.json({
       success: true,
       token: sessionToken,
@@ -75,10 +75,10 @@ export async function POST(req: Request) {
         climateScore: user.climateScore,
       },
     });
-  } catch (error: any) {
-    console.error("MongoDB/Registration Error:", error);
+  } catch (error: unknown) {
+    const err = error as Error;
     return Response.json(
-      { success: false, error: error.message || "Internal server error" },
+      { success: false, error: err.message || "Internal server error" },
       { status: 500 }
     );
   }
