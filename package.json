@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
-    "start": "next start",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=400' next build",
+    "start": "cross-env NODE_OPTIONS='--max-old-space-size=400' next start",
     "lint": "next lint"
   },
   "dependencies": {
