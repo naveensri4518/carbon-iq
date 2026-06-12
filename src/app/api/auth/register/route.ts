@@ -1,7 +1,6 @@
 import connectDB from "@/lib/mongodb";
 import User from "@/models/User";
 import ClimateData from "@/models/ClimateData";
-import { model } from "@/lib/gemini";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -43,13 +42,6 @@ export async function POST(req: Request) {
 
     // Generate AI Insight
     let aiInsight = "Your data suggests switching to renewable grid energy will reduce your footprint by 2.1 tons instantly.";
-    try {
-      const prompt = `Generate a short, single-sentence actionable insight for a new user to reduce their carbon footprint. Make it sound professional and data-driven.`;
-      const result = await model.generateContent(prompt);
-      aiInsight = result.response.text().trim();
-    } catch (e) {
-      console.error("Gemini failed, using fallback insight", e);
-    }
 
     await ClimateData.create({
       userId: user._id,
