@@ -106,9 +106,10 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-muted mb-2">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-muted mb-2">Email Address</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 required
                 className="w-full bg-white border border-black/5 rounded-xl px-4 py-4 text-text focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 shadow-sm"
@@ -117,9 +118,10 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-muted mb-2">Password</label>
+              <label htmlFor="password" className="block text-sm font-semibold text-muted mb-2">Password</label>
               <input
                 type="password"
+                id="password"
                 name="password"
                 required
                 className="w-full bg-white border border-black/5 rounded-xl px-4 py-4 text-text focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 shadow-sm"

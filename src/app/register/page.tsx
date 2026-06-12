@@ -76,9 +76,10 @@ export default function RegisterPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-[#86868B] mb-2">Full Name</label>
+              <label htmlFor="name" className="block text-sm font-semibold text-[#86868B] mb-2">Full Name</label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 required
                 className="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#32D74B] focus:ring-1 focus:ring-[#32D74B] transition-all duration-300"
@@ -87,9 +88,10 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-[#86868B] mb-2">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-[#86868B] mb-2">Email Address</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 required
                 className="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#32D74B] focus:ring-1 focus:ring-[#32D74B] transition-all duration-300"
@@ -98,9 +100,10 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-[#86868B] mb-2">Password</label>
+              <label htmlFor="password" className="block text-sm font-semibold text-[#86868B] mb-2">Password</label>
               <input
                 type="password"
+                id="password"
                 name="password"
                 required
                 className="w-full bg-[#000000] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#32D74B] focus:ring-1 focus:ring-[#32D74B] transition-all duration-300"

@@ -103,6 +103,8 @@ export default function SimulatorPage() {
           />
           <input 
             type="range" 
+            id="timeline-slider"
+            aria-label="Transition Timeline Slider"
             min="0" 
             max="100" 
             value={sliderVal} 

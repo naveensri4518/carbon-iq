@@ -117,6 +117,7 @@ export default function AdvisorPage({ initialMessages = [] }: { initialMessages?
             <div className="flex-1 relative flex items-center">
               <input 
                 type="text" 
+                aria-label="Message Input"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={loading}
@@ -125,6 +126,7 @@ export default function AdvisorPage({ initialMessages = [] }: { initialMessages?
               />
               <button 
                 type="submit"
+                aria-label="Send Message"
                 disabled={loading || !input.trim()}
                 className="absolute right-3 bg-accent disabled:opacity-50 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold transition-all hover:scale-105"
               >
