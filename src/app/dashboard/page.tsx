@@ -6,7 +6,7 @@ import CarbonRings from "@/components/CarbonRings";
 import Link from "next/link";
 
 export default async function DashboardPage() {
-  let user, climateData;
+  let user: any, climateData: any;
   let authFailed = false;
   try {
     const data = await getUserData();
